@@ -1,0 +1,10 @@
+ asdfasd * 1 = NaN
+ asdfasd * 2 = NaN
+ asdfasd * 3 = NaN
+ asdfasd * 4 = NaN
+ asdfasd * 5 = NaN
+ asdfasd * 6 = NaN
+ asdfasd * 7 = NaN
+ asdfasd * 8 = NaN
+ asdfasd * 9 = NaN
+ asdfasd * 10 = NaN
