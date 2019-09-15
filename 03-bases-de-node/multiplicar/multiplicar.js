@@ -1,9 +1,11 @@
 const fs = require('fs');
+const colors = require('colors');
+
 // const fs = require('express'); archivos exportados
-// const fs = require('./fs'); archivos creados en el proyecto
+// const fs = require('./archivo'); archivos creados en el proyecto
 
 
-let crearArchivo = (base)=>{
+let crearArchivo = (base,limite=10)=>{
     return new Promise((resolve, reject)=>{
         
         if(!Number(base)){
@@ -13,14 +15,14 @@ let crearArchivo = (base)=>{
         let data = '';
 
 
-        for (let x=1;x<=10;x++){
+        for (let x=1;x<=limite;x++){
             data+=` ${ base } * ${ x } = ${ base * x}\n`;
         }
-        fs.writeFile(`tablas/tabla-${base}.txt`, data, (err) => {
+        fs.writeFile(`tablas/tabla-${base}-al-${limite}.txt`, data, (err) => {
         if(err)
             reject (err)
         else
-            resolve(`tabla-${base}.txt`)    
+            resolve(`tabla-${base}-al-${limite}.txt`)    
         });        
     })
 
@@ -28,8 +30,19 @@ let crearArchivo = (base)=>{
 }
 
 
+let listarTabla = (base,limite=10) =>{
+    console.log('==========================='.blue);
+    console.log(`Tabla del ${ base} al ${limite}`.blue);
+    console.log('==========================='.blue);
+    for(x=1;x<=limite;x++){
+        console.log(`${base} * ${x} = ${colors.green(base*x)}`);
+    }
+}
+
+
 module.exports = {
-    crearArchivo
+    crearArchivo,
+    listarTabla
 }
 // Exporta los objetos de forma global, en este caso se especifica el metodo crearArchivo de forma global
 
